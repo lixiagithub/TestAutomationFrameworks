@@ -7,6 +7,12 @@
 ######  2. git 拉取本项目 `git clone https://github.com/.git`
 
 ######  3. 安装相关依赖包 `pip install -r requirements.txt`
+            1)python项目中必须包含一个 requirements.txt 文件，用于记录所有依赖包及其精确的版本号。以便新环境部署。
+            requirements.txt可以通过pip命令自动生成和安装。
+
+            2)生成自己环境的requirements.txt文件：pip freeze > requirements.txt
+
+            3)安装requirements.txt依赖：pip install -r requirements.txt
 
 ######  4. 运行 python run.py运行所有UI自动化测试用例；python run_interfaceCase.py运行所有的接口自动化测试用例
 
