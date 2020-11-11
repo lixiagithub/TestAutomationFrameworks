@@ -1,0 +1,146 @@
+2020-11-03 20:53:14,387 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 20:53:14,411 HttpClient.py [line:86] INFO <Response [200]>
+2020-11-03 20:53:14,428 HttpClient.py [line:102] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '43', 'Content-Type': 'application/json'}
+2020-11-03 20:53:14,428 HttpClient.py [line:103] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 20:53:14,429 testcase.py [line:31] INFO 验证结果
+2020-11-03 20:53:33,956 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 20:53:33,964 HttpClient.py [line:86] INFO <Response [200]>
+2020-11-03 20:53:33,984 HttpClient.py [line:102] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '43', 'Content-Type': 'application/json'}
+2020-11-03 20:53:33,985 HttpClient.py [line:103] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 20:53:33,985 testcase.py [line:31] INFO 验证结果这个name的值预期是:admin1,而实际返回的是:admin
+2020-11-03 20:58:27,268 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/demo,入参:{'limit': '1'}
+2020-11-03 20:58:27,275 HttpClient.py [line:86] INFO <Response [200]>
+2020-11-03 20:58:27,276 HttpClient.py [line:102] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '14', 'Content-Type': 'application/json'}
+2020-11-03 20:58:27,276 HttpClient.py [line:103] INFO 接口请求完成，响应值{'data': [{'from': 'huace', 'name': 'hello,zhiyilaoshi'}, {'from': 'huace', 'name': 'hello,diandianlaoshi'}, {'from': 'huace', 'name': 'hello,zimolaoshi'}], 'httpstatus': 200}
+2020-11-03 20:58:27,276 testcase.py [line:51] INFO 验证结果
+2020-11-03 21:00:20,156 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/demo,入参:{'limit': '1'}
+2020-11-03 21:00:20,164 HttpClient.py [line:86] INFO <Response [200]>
+2020-11-03 21:00:20,164 HttpClient.py [line:102] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '14', 'Content-Type': 'application/json'}
+2020-11-03 21:00:20,164 HttpClient.py [line:103] INFO 接口请求完成，响应值{'data': [{'from': 'huace', 'name': 'hello,zhiyilaoshi'}], 'httpstatus': 200}
+2020-11-03 21:00:20,164 testcase.py [line:51] INFO 验证结果
+2020-11-03 21:03:16,224 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:03:16,240 HttpClient.py [line:86] INFO <Response [500]>
+2020-11-03 21:05:44,773 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:05:44,774 HttpClient.py [line:83] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'}
+2020-11-03 21:05:44,789 HttpClient.py [line:87] INFO <Response [500]>
+2020-11-03 21:06:35,513 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:06:35,528 HttpClient.py [line:86] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '15', 'Content-Type': 'application/json'}
+2020-11-03 21:06:35,528 HttpClient.py [line:87] INFO <Response [500]>
+2020-11-03 21:11:54,995 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:11:55,009 HttpClient.py [line:89] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '15', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:11:55,009 HttpClient.py [line:90] INFO <Response [500]>
+2020-11-03 21:13:21,994 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:13:22,005 HttpClient.py [line:89] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:13:22,005 HttpClient.py [line:90] INFO <Response [200]>
+2020-11-03 21:13:22,005 HttpClient.py [line:106] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:13:22,005 HttpClient.py [line:107] INFO 接口请求完成，响应值{'code': '000', 'data': [{'name': 'admin'}, {'userid': '001'}]}
+2020-11-03 21:13:22,006 testcase.py [line:53] INFO 验证结果
+2020-11-03 21:14:27,889 HttpClient.py [line:82] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:None
+2020-11-03 21:14:27,901 HttpClient.py [line:90] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '0', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:14:27,901 HttpClient.py [line:91] INFO <Response [500]>
+2020-11-03 21:17:15,996 HttpClient.py [line:92] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:17:16,004 HttpClient.py [line:100] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:17:16,004 HttpClient.py [line:101] INFO <Response [200]>
+2020-11-03 21:17:16,004 HttpClient.py [line:117] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:17:16,005 HttpClient.py [line:118] INFO 接口请求完成，响应值{'code': '000', 'data': [{'name': 'admin'}, {'userid': '001'}]}
+2020-11-03 21:17:16,005 testcase.py [line:53] INFO 验证结果
+2020-11-03 21:18:02,898 HttpClient.py [line:84] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:18:02,904 HttpClient.py [line:92] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:18:02,904 HttpClient.py [line:93] INFO <Response [200]>
+2020-11-03 21:18:02,904 HttpClient.py [line:109] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:18:02,905 HttpClient.py [line:110] INFO 接口请求完成，响应值{'code': '000', 'data': [{'name': 'admin'}, {'userid': '001'}]}
+2020-11-03 21:18:02,905 testcase.py [line:53] INFO 验证结果
+2020-11-03 21:18:32,809 HttpClient.py [line:84] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:18:32,822 HttpClient.py [line:92] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '30', 'Content-Type': 'application/x-www-form-urlencoded'}
+2020-11-03 21:18:32,822 HttpClient.py [line:93] INFO <Response [500]>
+2020-11-03 21:18:32,824 HttpClient.py [line:84] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/userInfo,入参:{'userid': '1'}
+2020-11-03 21:18:32,828 HttpClient.py [line:92] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:18:32,828 HttpClient.py [line:93] INFO <Response [200]>
+2020-11-03 21:18:32,829 HttpClient.py [line:109] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': '8', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:18:32,829 HttpClient.py [line:110] INFO 接口请求完成，响应值{'code': '000', 'data': [{'name': 'admin'}, {'userid': '001'}]}
+2020-11-03 21:18:32,829 testcase.py [line:53] INFO 验证结果
+2020-11-03 21:19:37,933 HttpClient.py [line:84] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:19:37,950 HttpClient.py [line:92] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '30', 'Content-Type': 'application/x-www-form-urlencoded'}
+2020-11-03 21:19:37,950 HttpClient.py [line:93] INFO <Response [500]>
+2020-11-03 21:20:24,648 HttpClient.py [line:84] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:20:24,655 HttpClient.py [line:92] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '30', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:20:24,655 HttpClient.py [line:93] INFO <Response [400]>
+2020-11-03 21:37:31,688 testcase.py [line:22] INFO {'casename': 'login', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '123456'}, 'extract': {'exToken': 'token'}, 'duanyan': {'info': {'name': 'admin'}}}
+2020-11-03 21:37:58,233 testcase.py [line:22] INFO {'casename': 'login1', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '123456'}, 'extract': {'exToken': 'token'}, 'duanyan': {'info': {'name': 'admin'}}}
+2020-11-03 21:37:58,234 testcase.py [line:22] INFO {'casename': 'login2', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '12345678'}, 'extract': {'exToken': 'token'}, 'duanyan': {'info': {'name': 'admin'}}}
+2020-11-03 21:41:46,354 testcase.py [line:22] INFO {'casename': 'login1', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '123456'}, 'extract': {'exToken': 'token'}, 'duanyan': {'info': {'name': 'admin'}}}
+2020-11-03 21:41:46,354 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:None
+2020-11-03 21:41:46,360 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:41:46,361 HttpClient.py [line:96] INFO <Response [400]>
+2020-11-03 21:41:46,366 testcase.py [line:22] INFO {'casename': 'login2', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '12345678'}, 'extract': None, 'duanyan': {'msg': '用户名或密码错误'}}
+2020-11-03 21:41:46,367 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:None
+2020-11-03 21:41:46,372 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '0', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:41:46,372 HttpClient.py [line:96] INFO <Response [400]>
+2020-11-03 21:43:06,222 testcase.py [line:22] INFO {'casename': 'login1', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '123456'}, 'extract': {'exToken': 'token'}, 'duanyan': {'info': {'name': 'admin'}}}
+2020-11-03 21:43:06,222 testcase.py [line:22] INFO {'casename': 'login2', 'method': 'post', 'apiname': 'login', 'data': {'username': 'admin', 'password': '12345678'}, 'extract': None, 'duanyan': {'msg': '用户名或密码错误'}}
+2020-11-03 21:44:03,969 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:44:03,974 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:44:03,974 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:44:03,974 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:44:03,975 HttpClient.py [line:113] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 21:44:03,975 testcase.py [line:38] INFO 验证结果
+2020-11-03 21:44:27,548 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:44:27,556 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:44:27,557 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:44:27,557 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:44:27,557 HttpClient.py [line:113] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 21:44:27,557 testcase.py [line:37] INFO 验证结果
+2020-11-03 21:44:27,558 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '12345678'}
+2020-11-03 21:44:27,566 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:44:27,567 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:46:01,108 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:46:01,114 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:01,114 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:46:01,114 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:01,114 HttpClient.py [line:113] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 21:46:01,115 testcase.py [line:38] INFO 验证结果
+2020-11-03 21:46:01,115 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '12345678'}
+2020-11-03 21:46:01,119 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:01,120 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:46:27,335 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:46:27,343 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:27,343 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:46:27,343 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:27,343 HttpClient.py [line:113] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 21:46:27,343 testcase.py [line:38] INFO 验证结果
+2020-11-03 21:46:27,343 HttpClient.py [line:87] INFO 开始请求接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '12345678'}
+2020-11-03 21:46:27,348 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:27,348 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:46:27,348 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:46:27,348 HttpClient.py [line:113] INFO 接口请求完成，响应值{'code': '001', 'msg': '用户名或密码错误'}
+2020-11-03 21:46:27,348 testcase.py [line:38] INFO 验证结果
+2020-11-03 21:49:51,869 HttpClient.py [line:87] INFO 开始请求第1个接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:49:51,876 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:49:51,876 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:49:51,876 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:49:51,877 HttpClient.py [line:113] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 21:49:51,877 testcase.py [line:34] INFO 验证结果
+2020-11-03 21:49:51,877 HttpClient.py [line:87] INFO 开始请求第2个接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '12345678'}
+2020-11-03 21:49:51,883 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:49:51,884 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:49:51,884 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:49:51,884 HttpClient.py [line:113] INFO 接口请求完成，响应值{'code': '001', 'msg': '用户名或密码错误'}
+2020-11-03 21:49:51,884 testcase.py [line:34] INFO 验证结果
+2020-11-03 21:54:55,120 HttpClient.py [line:87] INFO 开始请求第1个接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '123456'}
+2020-11-03 21:54:55,127 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:54:55,127 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:54:55,145 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '43', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:54:55,145 HttpClient.py [line:113] INFO 接口请求完成，响应值{'adress': {'city': 'changsha'}, 'httpstatus': 200, 'info': {'age': 18, 'name': 'admin'}, 'msg': 'success', 'token': 'huacetest'}
+2020-11-03 21:54:55,145 testcase.py [line:34] INFO 验证结果
+2020-11-03 21:54:55,145 HttpClient.py [line:87] INFO 开始请求第2个接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '12345678'}
+2020-11-03 21:54:55,149 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:54:55,149 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:54:55,150 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:54:55,150 HttpClient.py [line:113] INFO 接口请求完成，响应值{'code': '001', 'msg': '用户名或密码错误'}
+2020-11-03 21:54:55,150 testcase.py [line:34] INFO 验证结果
+2020-11-03 21:54:55,150 HttpClient.py [line:87] INFO 开始请求第3个接口,url:http://127.0.0.1:5000/api/huace/login,入参:{'username': 'admin', 'password': '12345678'}
+2020-11-03 21:54:55,156 HttpClient.py [line:95] INFO {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:54:55,156 HttpClient.py [line:96] INFO <Response [200]>
+2020-11-03 21:54:55,156 HttpClient.py [line:112] INFO 接口请求的头部信息{'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'token': 'huacetest', 'Content-Length': '45', 'Authorization': 'Basic YWRtaW46aHVhY2UxMjM0NTY='}
+2020-11-03 21:54:55,157 HttpClient.py [line:113] INFO 接口请求完成，响应值{'code': '001', 'msg': '用户名或密码错误'}
+2020-11-03 21:54:55,157 testcase.py [line:34] INFO 验证结果
