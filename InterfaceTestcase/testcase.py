@@ -7,8 +7,8 @@ from ddt import ddt,data,file_data
 from untils.op_excel import Excel_rw
 from untils.tool import *
 apiPre=baseConfig.api['test']
-#apicase_path=baseConfig.APICASE_YAML_PATH
-apicase_path=baseConfig.APICASE_EXCEL_PATH
+#apicase_path=baseConfig.APICASE_YAML_PATH #测试用例写在yaml文件中
+apicase_path=baseConfig.APICASE_EXCEL_PATH #测试用例写在excel文件中
 @ddt
 class TestCaseAPi(unittest.TestCase):
     '''

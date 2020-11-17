@@ -12,13 +12,30 @@ class Excel_rw():
         self.sheet1 = self.wb[sheets_name[0]]  # 第一个sheet表格
         '''xlrd'''
         self.excel=xlrd.open_workbook(filename)
-    def write_tiqu(self,rowv,colV):
-        #获取有多少行
-        rows=self.sheet1.max_row
-        #写入第一行的值 ：变量名称
-        self.sheet1.cell(row=rows+1,column=1).value=rowv
-        #写入第二行的值 ：变量具体的值
-        self.sheet1.cell(row=rows+1,column=2).value=colV
+
+    def get_col_value(self):
+        '''获取第一列所有值，组装成一个列表'''
+        rows = self.sheet1.max_row  # 4
+        data = []
+        for i in range(2, rows + 1):  # i=2,3,4,excel列表第二行，开始读取
+            clo_value = self.sheet1.cell(row=i, column=1).value
+            data.append(clo_value)
+        return data
+
+    def write_tiqu(self, rowv, colV):
+        # 获取有多少行
+        rows = self.sheet1.max_row
+        # 判断是否存在相同的变量名称 1.获取所有的变量名称，组成一个列表。2.新写入的变量是否在列表中
+        V_names = []  # ['message','code']
+        if rowv in V_names:
+            # 更新值
+            idx = V_names.index(rowv)  # 获取已存在的变量名称的索引+2
+            self.sheet1.cell(row=idx + 2, column=2).value = colV
+        else:
+            # 写入第一行的值 ：变量名称
+            self.sheet1.cell(row=rows + 1, column=1).value = rowv
+            # 写入第二行的值 ：变量具体的值
+            self.sheet1.cell(row=rows + 1, column=2).value = colV
         self.wb.save(self.filename)
 
     def read_tiqu(self,name):

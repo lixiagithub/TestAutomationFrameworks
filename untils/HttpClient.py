@@ -72,6 +72,12 @@ class  HttpClientRequest():
                         res=self.validate(value,shiji[key])
                         if res[0] is False:
                             return res
+                if isinstance(value, list) and isinstance(shiji[key], list):
+                   for x in value:
+                       for y in shiji[key]:
+                            res = self.validate(x, y)
+                            if res[0] is False:
+                                return res
                 elif  value != shiji[key]:
                     msg+='这个{}的值预期是:{},而实际返回的是:{}'.format(key,value,shiji[key])
                     print(msg)
@@ -94,10 +100,17 @@ class  HttpClientRequest():
             h=kwargs["headers"]
             self.init_headers(headers=h)
         else:
-            data=json.dumps(data)#将字典类型的参数转化为json字符串
-        res=self.session.request(method=method,
-                                 url=url,data=data,
-                                 params=data)  #真正所有接口发送请求的入口
+            if not method=='get':
+                data=json.dumps(data)#将字典类型的参数转化为json字符串
+
+        if method=='get':
+            res=self.session.request(method=method,
+                                     url=url,
+                                     params=data)  #真正所有get接口发送请求的入口
+        else:
+            res = self.session.request(method=method,
+                                       url=url,
+                                       data=data)  # 真正所有post接口发送请求的入口
         logger.info(res.request.headers) #请求头所有信息
         logger.info(res)
         respone=res.json() #转化成字典之后，响应值
