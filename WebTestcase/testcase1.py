@@ -2,25 +2,38 @@
 from untils.initBrowser import browsertype
 from WebTestcase.POM.HomePage import HomePage
 
-# import time
-# class TestLogin():
-# #     def test01(self,login):
-# #         '''用例：登录之后，'''
-# #         print('111')
-#         # login.send_key_my(HomePage.gouwuche).click()
-#
-#         # time.sleep(5)
-#         #'''购物车的增删改查'''
-#     #
-#     def test02(self,login):
-#         '''购物车结算界面：
-#         1.点击结算
-#         2.根据提示是否需要勾选商品
-#             一般弹出的提示：这个元素在页面肯定存在，根据元素的属性是否显示
-#         '''
-#         login.find_element_by_xpath(*HomePage.gouwuche).click()
-#         #获取弹窗的属性
-#         time.sleep(5)
+import time
+class TestUser():
+    def test01(self, login):
+        if login[1]:
+            '''用例：登录之后，'''
+            print('执行用例1')
+        else:
+            print('不执行用例1')
+
+    def test02(self, login):
+        if login[1]:
+            print('执行用例2')
+        else:
+            print('不执行用例2')
+
+    # def test01(self,login):
+    #     '''用例：登录之后，'''
+    #     print('111')
+    #     login.send_key_my(HomePage.gouwuche).click()
+    #
+    #     time.sleep(5)
+    #     '''购物车的增删改查'''
+    #
+    # def test02(self,login):
+    #     '''购物车结算界面：
+    #     1.点击结算
+    #     2.根据提示是否需要勾选商品
+    #         一般弹出的提示：这个元素在页面肯定存在，根据元素的属性是否显示
+    #     '''
+    #     login.find_element_by_xpath(*HomePage.gouwuche).click()
+    #     #获取弹窗的属性
+    #     time.sleep(5)
 
 
 '''

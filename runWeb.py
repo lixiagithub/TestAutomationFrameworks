@@ -1,7 +1,7 @@
 '''web端用例执行入口'''
 import pytest
 '''运行所有的web用例'''
-#pytest.main(['-s','-vv','--alluredir','./report/xml'])
+pytest.main(['-s','-vv','--alluredir','./report/xml'])
 
 
 
@@ -9,7 +9,7 @@ import pytest
 
 
 '''运行所有的app用例'''
-pytest.main(['-s','-vv','../zidonghua/AppTestCase','--alluredir','./report/xml'])
+#pytest.main(['-s','-vv','../TestAutomationFrameworks/AppTestCase','--alluredir','./report/xml'])
 
 
 

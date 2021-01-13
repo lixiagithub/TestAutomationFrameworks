@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from log.log import logger
 import allure
+
 def browsertype():
     '''
     根据yaml配置文件，初始化浏览器
@@ -30,8 +31,8 @@ def browsertype():
         else:
             raise ('没有支持的浏览器类型{}'.format(baseConfig.browser['type']))
     driver.get(baseConfig.ui['test'])
-    driver.save_screenshot('./1024.png')
-    driver.maximize_window()#浏览器最大化
+    driver.maximize_window()  # 浏览器最大化
+    driver.save_screenshot(baseConfig.picturePath+r'\login.png')
     return driver
 
 class BrowserInit():
@@ -61,22 +62,28 @@ class BrowserInit():
         time=8
         try:
             elements=WebDriverWait(self.driver,time).until(lambda x:x.find_elements(*loc))
+            return elements
         except Exception as e:
-            logger.info('{}个元素超过了8秒未找到'.format(loc[1]))
+            logger.info('{0}这个元素超过了8秒未找到'.format(loc[1]))
             self.add_fail_picture()
-            raise e
-        return elements
+            #raise e
+            elements=[]
+            return elements
 
     def send_key_my(self,loc,value):
         ele=self.until_element_visible(loc)
-        logger.info('在{0}：个元素输入了：{1}'.format(loc[1],value))
+        logger.info('在{0}：这个元素输入了：{1}'.format(loc[1],value))
         ele.send_keys(value)
 
     def click_my(self,loc):
         ele=self.until_element_visible(loc)
-        logger.info('点击了{0}：元素'.format(loc[1]))
+        logger.info('点击了{0}：这个元素'.format(loc[1]))
         ele.click()
 
+    def find_my(self,loc):
+        ele = self.until_element_visible(loc)
+        logger.info('找到{0}：这个元素'.format(loc[1]))
+        return ele
 
     def add_fail_picture(self):
         '''
@@ -88,7 +95,7 @@ class BrowserInit():
         '''allure添加截图附件'''
         with open(file_name, mode='rb') as file:
             f = file.read()  # 读取文件，将读取的结果作为参数传给allure
-        allure.attach(f, 'denglu', allure.attachment_type.JPG)
+        allure.attach(f, 'bug', allure.attachment_type.JPG)
 
     def element_visible_times(self,loc):
         '''验证结果方法'''

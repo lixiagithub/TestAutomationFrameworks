@@ -1,5 +1,5 @@
 ui:
-  test: http://shopxo.hctestedu.com/
+  test: http://132.138.7.112:8080/index.php/system/Public/login.html
   prourl:
   preurl:
 api:
@@ -17,12 +17,12 @@ browser:
 database:
     username: root
     password: root123
-    dbname: atp_auto_sit
-    serve: localhost
+    dbname: airport_new
+    serve: 132.138.7.138
 
 appdata:
-    devicesname: emulator-5554
-    appname: com.netease.cloudmusic
+    devicesname: f0bc0371
+    appname: com.atnc.vfr
 
 
 email:

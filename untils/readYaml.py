@@ -18,7 +18,7 @@ class Config:
     BasePath：一定是框架的base目录'''
     BasePath=os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '\..')
     config_path=BasePath+'\config\config.yaml'
-    chrome_driver_path=BasePath+'\lib\chromedriver.exe'
+    chrome_driver_path=BasePath+'\lib\chromedriver.exe  '
     firefox_driver_path=BasePath+'\lib\geckodriver.exe'
     picturePath=BasePath+'\picture'
     logger_path=BasePath+'\log'
