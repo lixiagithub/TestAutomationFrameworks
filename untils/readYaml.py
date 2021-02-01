@@ -45,11 +45,18 @@ class Config:
         return self.config['browser']
 
     @property #方法变成一个属性来调用
-    def database(self):
+    def apidatabase(self):
         '''
         :return: config.yaml里面的ui的数据
         '''
-        return self.config['database']
+        return self.config['apidatabase']
+
+    @property #方法变成一个属性来调用
+    def webdatabase(self):
+        '''
+        :return: config.yaml里面的ui的数据
+        '''
+        return self.config['webdatabase']
 
     @property #方法变成一个属性来调用
     def appdata(self):

@@ -18,4 +18,5 @@ class HomePage():
     #     openbrowser.send_key_my(HomePage.search_input, value)
     #     openbrowser.click_my(HomePage.search_button)
 
-    user_name=(By.XPATH, '// *[ @ id = "page-wrapper"] / div[1] / nav / div[2] / ul / li[3] / a / span')#右上角用户名
+    assert_user_name=(By.XPATH, '// *[ @ id = "page-wrapper"] / div[1] / nav / div[2] / ul / li[3] / a / span')#右上角用户名
+    #assert_user_name = (By.XPATH,'/ html / body / div[1] / div / div / div[2] / div[1] / h3 / text()')  #欢迎您登陆平台

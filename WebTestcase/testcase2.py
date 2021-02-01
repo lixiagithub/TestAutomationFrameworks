@@ -1,7 +1,7 @@
 '''不用登录：搜索模块'''
 import time
 from WebTestcase.POM.LoginPage import LoginPage
-from untils.op_mysql import execute
+from untils.op_mysql import execute_web
 class TestLogin(LoginPage):
     # def test01(self,openbrowser):
     #     openbrowser.send_key_my(LoginPage.username, '')

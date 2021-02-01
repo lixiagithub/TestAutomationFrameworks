@@ -9,7 +9,7 @@ import pytest, time
 # def teardown_module():
 #     print("所有用例结束只最后关闭浏览器")
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='module')#只执行一次
 def openbrowser():
     '''初始化浏览器方法'''
     # driver=browsertype()#返回浏览器对象

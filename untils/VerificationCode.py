@@ -83,7 +83,7 @@ class VerificationCode():
         '''
            通用文字识别（高精度含位置版）
            '''
-        request_url = "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate"
+        request_url = "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic"
         # 二进制方式打开图片文件
         f = open(baseConfig.picturePath+r'\verification.png', 'rb')
         my_img = base64.b64encode(f.read())
