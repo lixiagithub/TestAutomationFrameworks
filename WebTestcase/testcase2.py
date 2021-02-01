@@ -3,12 +3,6 @@ import time
 from WebTestcase.POM.LoginPage import LoginPage
 from untils.op_mysql import execute_web
 class TestLogin(LoginPage):
-    # def test01(self,openbrowser):
-    #     openbrowser.send_key_my(LoginPage.username, '')
-    #     openbrowser.send_key_my(LoginPage.password, 'PBAPP#321')
-
-
-
     # def setup(self):
     #     print('前置')
     #     self.data=execute('select * from user limit 5')
