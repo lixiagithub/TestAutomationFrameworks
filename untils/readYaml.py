@@ -16,17 +16,17 @@ class YamlRead:
 class Config:
     '''os.path.dirname:某个文件所在的路径
     BasePath：一定是框架的base目录'''
-    BasePath=os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '\..')
-    config_path=BasePath+'\config\config.yaml'
-    chrome_driver_path=BasePath+'\lib\chromedriver.exe  '
-    firefox_driver_path=BasePath+'\lib\geckodriver.exe'
-    picturePath=BasePath+'\picture'
-    logger_path=BasePath+'\log'
-    TIQU_PATH=BasePath+r'\config\tiqu.xlsx'
-    APICASE_YAML_PATH=BasePath+r'\config\apitestcase.yaml'
-    APICASE_EXCEL_PATH=BasePath+r'\config\apitestcase.xlsx'
-    API_REPORT_PATH=BasePath+r'\report'
-    InterFace_PATH=BasePath+r'\InterfaceTestcase'
+    BasePath=os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/..')
+    config_path=BasePath+'/config/config.yaml'
+    chrome_driver_path=BasePath+'/lib/chromedriver.exe  '
+    firefox_driver_path=BasePath+'/lib/geckodriver.exe'
+    picturePath=BasePath+'/picture'
+    logger_path=BasePath+'/log'
+    TIQU_PATH=BasePath+r'/config/tiqu.xlsx'
+    APICASE_YAML_PATH=BasePath+r'/config/apitestcase.yaml'
+    APICASE_EXCEL_PATH=BasePath+r'/config/apitestcase.xlsx'
+    API_REPORT_PATH=BasePath+r'/report'
+    InterFace_PATH=BasePath+r'/InterfaceTestcase'
 
     def __init__(self,config=config_path):
         self.config=YamlRead(config).data
