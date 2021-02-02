@@ -1,7 +1,7 @@
 '''web端用例执行入口'''
 import pytest
 '''运行所有的web用例'''
-pytest.main(['-rs','-vv','--alluredir','./report/xml']) #-r跳过用例，-s显示print内容，--alluredir报告，./report/xml报告地址
+pytest.main(['-rs','-vv','WebTestCase','--alluredir','./report/xml']) #-r跳过用例，-s显示print内容，--alluredir报告，./report/xml报告地址
 
 
 
