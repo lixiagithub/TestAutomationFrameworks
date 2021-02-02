@@ -2,17 +2,11 @@ import yaml,os
 class YamlRead:
     def __init__(self,yamlfile):
         '''如果第一次调用，读取yaml，否则返回之前读取的数据'''
-        self.datas = None
-        try:
-            if os.path.exists(yamlfile):
-                self.yamlfile=yamlfile
-        except Exception as e:
-            raise e
-        # if os.path.exists(yamlfile):
-        #     self.yamlfile=yamlfile
-        # else:
-        #     raise FileNotFoundError('读取的yaml文件不存在')
-        # self.datas=None
+        if os.path.exists(yamlfile):
+            self.yamlfile=yamlfile
+        else:
+            raise FileNotFoundError('读取的yaml文件不存在')
+        self.datas=None
 
     @property #方法变成一个属性来调用
     def data(self):
