@@ -11,7 +11,7 @@ class YamlRead:
     @property #方法变成一个属性来调用
     def data(self):
         with open(self.yamlfile,mode='rb') as f:
-            self.datas=yaml.load(f)
+            self.datas=yaml.load(f,Loader=yaml.FullLoader)
         return self.datas
 class Config:
     '''os.path.dirname:某个文件所在的路径
