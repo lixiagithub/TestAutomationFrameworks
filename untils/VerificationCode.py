@@ -88,48 +88,20 @@ class VerificationCode():
         f = open(baseConfig.picturePath+r'\verification.png', 'rb')
         my_img = base64.b64encode(f.read())
         params = {"image": my_img}
-        access_token = '24.657e639953d9de82334251bb5167f00f.2592000.1613020536.282335-23524868'
+        access_token = '24.114ffc196da40af7392d8a5be8eb2032.2592000.1616308770.282335-23524868'
         request_url = request_url + "?access_token=" + access_token
         headers = {'content-type': 'application/x-www-form-urlencoded'}
         response = requests.post(request_url, data=params, headers=headers)
         res=response.json()
         my_code=res['words_result'][0]['words']#获取的是加法例如1+1
-        # pytesseract.tesseract_cmd = r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"  # 设置pyteseract路径
-        # result = pytesseract.image_to_string(image)  # 图片转文字
-        # resultj = re.sub(u"([^\u4e00-\u9fa5\u0030-\u0039\u0041-\u005a\u0061-\u007a])", "", result)  # 去除识别出来的特殊字符
-        # result_four = resultj[0:4]  # 只获取前4个字符
-        # print(resultj)  # 打印识别的验证码
-        print(my_code,res,eval(my_code[0:3]))
-        return eval(my_code[0:3])#返回运算结果
+        if len(my_code)>=3 and ('?' not in my_code):
+            code=eval(my_code[0:3])#返回运算结果
+            # print(my_code, res, eval(my_code[0:3]))
+        else:
+            code=None
+            # print(my_code, res)
+        return code#返回运算结果
 
-    # from aip import AipOcr
-    # from os import path
-    # def baiduOCR(self,img):  # picfile:图片文件名 outfile:输出文件
-    #     filename = image = self.delete_spot(img)  # 图片名称
-    #     # 百度提供
-    #     """ 你的 APPID AK SK """
-    #     APP_ID = ''  # 这是你产品服务的appid
-    #     API_KEY = ''  # 这是你产品服务的appkey
-    #     SECRET_KEY = ''  # 这是你产品服务的secretkey
-    #     client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
-    #     i = open(picfile, 'rb')
-    #     img = i.read()
-    #
-    #     print("正在识别图片：\t" + filename)
-    #     """ 调用通用文字识别（高精度版） """
-    #     message = client.basicAccurate(img)
-    #     print("识别成功！")
-    #     i.close()
-    #     with open(outfile, 'a+') as fo:  # 这边是写进.txt文件
-    #         fo.writelines("*" * 60 + '\n')  # 搞点花里胡哨的做区分
-    #         fo.writelines("识别图片：\t" + filename + "\n" * 2)
-    #         fo.writelines("文本内容：\n")
-    #         # 输出文本内容
-    #         for text in message.get('words_result'):  # 识别的内容
-    #             fo.writelines(text.get('words') + '\n')
-    #         fo.writelines('\n' * 2)
-    #     print("文本导出成功！")
-    #     print()
 
 if __name__ == '__main__':
     a = VerificationCode()

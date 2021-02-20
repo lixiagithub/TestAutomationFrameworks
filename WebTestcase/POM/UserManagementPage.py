@@ -2,7 +2,7 @@
 # Author:李昰 
 # Date：2021/1/13 11:11
 from selenium.webdriver.common.by import By
-
+import time
 class UserManagementPage():
     root_node=(By.XPATH,'// *[ @ id = "treeDemo"]')#党组织列表
     all_node = (By.XPATH,'// *[ @ id = "treeDemo"]/a')#所有节点
@@ -11,7 +11,7 @@ class UserManagementPage():
     '''新增'''
     user_add_button =(By.XPATH,'/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[4]')#新增按钮
     assert_page_add_update_text = (By.XPATH,'/html/body/div[1]/div/div/div[3]/div/div/div/span')#用户添加/修改
-    administrative_authority_text=(By.XPATH,'// *[ @ id = "myform"] / div / div / div[1] / div / div')#党组织管理权限
+    administrative_authority_text=(By.XPATH,'//*[@id="myform"]/div/div/div[1]/div/div')#党组织管理权限
     #user_relation_nos=(By.XPATH,'// *[ @ id = "user_relation_nos"]')#选择党员下拉列表隐藏的用于为空校验
     show_party_member_select=(By.XPATH,'//*[@id="myform"]/div/div/div[2]/div/div/span/span[1]')#党委点击显示下拉列表
     #select_party_member_ul = (By.XPATH,'//*[@id="select2-user_relation_nos-results"]')#选择党员下拉列表ul
@@ -25,6 +25,7 @@ class UserManagementPage():
     assert_table_number = (By.XPATH,'//*[@id="table"]/div[1]/div[2]/div[4]/div[1]/span[1]')#总共多少条数
     div_alert = (By.CLASS_NAME,'layui-layer layui-layer-dialog')#div操作弹出框
     assert_div_alert_text = (By.CLASS_NAME,'layui-layer-content')#新增操作提示框文本
+    # assert_div_alert_text = (By.XPATH, '/html/body/div[6]/div[2]')  #新增操作提示框文本
     div_alert_button = (By.CLASS_NAME,'layui-layer-btn0')#操作提示框的确定按钮
     # assert_div_alert_text = (By.XPATH,'/html/body/div[6]/div[2]')#新增操作提示框文本
     # div_alert_button = (By.XPATH,'/html/body/div[6]/div[3]/a')#操作提示框的确定按钮
@@ -41,9 +42,9 @@ class UserManagementPage():
     user_query_status_select=(By.XPATH,'/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[1]/div/div/span/span[1]/span')#点击显示下拉列表
     user_query_status_ul=(By.XPATH, '//*[@id="select2-status-results"]')#状态ul
     user_query_status_li = (By.XPATH, '//*[@id="select2-status-results"]/li')  # 状态li
-    user_query_status_li_text=(By.XPATH, '// *[ @ id = "select2-status-container"]')#获取选择的文本
-    user_query_status_li_available = (By.XPATH, '// *[ @ id = "select2-status-result-yurs-1"]')  # 选择可用
-    user_query_status_li_not_available = (By.XPATH, '//*[@id="select2-status-result-strb-2"]')  # 选择不可用
+    user_query_status_li_text=(By.XPATH, '//*[@id="select2-status-container"]')#获取选择的文本
+    user_query_status_li_available = (By.XPATH, '/html/body/span/span/span[2]/ul/li[2]')  # 选择可用
+    user_query_status_li_not_available = (By.XPATH, '/html/body/span/span/span[2]/ul/li[3]')  # 选择不可用
     user_query_role_select=(By.XPATH, '/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[2]/div/div/span/span[1]/span')#用户角色
     user_query_role_ul = (By.XPATH, '//*[@id="select2-user_role-results"]')  # 用户角色
     user_query_role_li = (By.XPATH, '//*[@id="select2-user_role-results"]/li')  # 用户角色
@@ -51,7 +52,7 @@ class UserManagementPage():
     user_query_keyword=(By.XPATH, '//*[@id="user_name"]')#关键词，姓名或党员编号
     user_query_button=(By.XPATH, '/html/body/div[1]/div/div/div[4]/div/div[2]/div[1]/div[5]')#查询按钮
     '''停用'''
-    user_block_up=(By.XPATH, '// *[ @ id = "client_table"] / tbody / tr[1] / td[10] / a[2]')#第一个停用按钮
+    user_block_up=(By.XPATH, '//*[@id="client_table"]/tbody/tr[1]/td[10]/a[2]')#第一个停用按钮
     '''启用'''
     user_start_using = (By.XPATH, '//*[@id="client_table"]/tbody/tr[1]/td[10]/a[2]')  # 第一个启用用按钮
 
@@ -178,27 +179,28 @@ class UserManagementPage():
     def user_block_up_query(self,openbrowser):
         '''状态下拉选择可用，点击查询，选择停用'''
         openbrowser.click_my(UserManagementPage.user_query_status_select)  # 显示下拉列表
-        # openbrowser.select_ul_click(UserManagementPage.user_query_status_li_available)# 选择可用
-        # ul=openbrowser.find_my(UserManagementPage.user_query_status_ul)
-        ul=openbrowser.driver.find_element_by_xpath('/html/body/span/span/span[2]/ul')# 定位ul可用
-        ul.find_element_by_xpath('/html/body/span/span/span[2]/ul/li[2]').click()# 选择可用
+        openbrowser.select_ul_click(UserManagementPage.user_query_status_li_available)# 选择可用
+        # ul=openbrowser.driver.find_element_by_xpath('/html/body/span/span/span[2]/ul')# 定位ul可用
+        # time.sleep(1)
+        # ul.find_element_by_xpath('/html/body/span/span/span[2]/ul/li[2]').click()# 选择可用
         openbrowser.click_my(UserManagementPage.user_query_button)#点击查询按钮
 
     def user_block_up_click(self,openbrowser):
-        openbrowser.click_my(UserManagementPage.user_block_up)  # 点击启用用按钮
+        openbrowser.click_my(UserManagementPage.user_block_up)  # 点击停用按钮
 
     '''封装查询启用'''
     def user_start_using_query(self,openbrowser):
         '''状态下拉选择不可用，点击查询'''
         openbrowser.click_my(UserManagementPage.user_query_status_select)  # 显示下拉列表
-        # openbrowser.click_my(UserManagementPage.user_query_status_li_not_available)# 选择不可用
-        ul = openbrowser.driver.find_element_by_xpath('/html/body/span/span/span[2]/ul')  # 定位ul
-        ul.find_element_by_xpath('/html/body/span/span/span[2]/ul/li[3]').click()  # 选择不可用
+        openbrowser.click_my(UserManagementPage.user_query_status_li_not_available)# 选择不可用
+        # time.sleep(1)
+        # ul = openbrowser.driver.find_element_by_xpath('/html/body/span/span/span[2]/ul')  # 定位ul
+        # ul.find_element_by_xpath('/html/body/span/span/span[2]/ul/li[3]').click()  # 选择不可用
         openbrowser.click_my(UserManagementPage.user_query_button)  # 点击查询按钮
 
 
     def user_start_using_click(self,openbrowser):
-        openbrowser.click_my(UserManagementPage.user_start_using)  # 点击启用用按钮
+        openbrowser.click_my(UserManagementPage.user_start_using)  # 点击启用按钮
 
     def assert_block_up_textcontent(self,openbrowser):
         '''封装判断停用文本'''

@@ -8,12 +8,18 @@ from untils.op_mysql import execute_web #数据库连接
 import time
 class TestUser(UserManagementPage,Menu):
 
+    def teardown_function(self,login):
+        print("teardown_function：每个用例结束后都会执行,双击用户管理菜单项")
+
+
     @pytest.fixture(scope="class")
     def test_into_userpage(self,login):
         '''进入用户管理页面'''
         if login:
             '''用例：登录之后，点击系统管理，点击用户管理，进入用户管理页面'''
             try:
+                #退出出iframe
+                login.switch_to_default_iframe()
                 #进入用户管理页面
                 self.into_user_page(login)
                 # 定位iframe,并且进入iframe
@@ -191,6 +197,7 @@ class TestUser(UserManagementPage,Menu):
             if self.assert_page_textcontent(test_into_userpage):  # 进入用户管理页面
                 logger.info('进入用户管理页面成功')
                 self.user_block_up_query(test_into_userpage)#搜索可用
+                logger.info('下拉选择可用，点击查询')
                 old_number = self.assert_table_number_text(test_into_userpage)  # 停用前用户数
                 self.user_block_up_click(test_into_userpage)#点击停用按钮
                 logger.info('点击停用')
@@ -200,7 +207,7 @@ class TestUser(UserManagementPage,Menu):
                         logger.info('确认停用弹出框文本正确')
                         self.div_alert_button_click(test_into_userpage)  # 点击确定按钮
                         logger.info('点击了div提示框确定按钮')
-                        time.sleep(5)
+                        time.sleep(8)
                         self.user_query_button_click(test_into_userpage)#停用后点击查询
                         logger.info('停用后点击查询')
                         new_number = self.assert_table_number_text(test_into_userpage)  # 启用后用户数
@@ -237,7 +244,7 @@ class TestUser(UserManagementPage,Menu):
                         logger.info('确认启用弹出框文本正确')
                         self.div_alert_button_click(test_into_userpage)  # 点击确定按钮
                         logger.info('点击了div提示框确定按钮')
-                        time.sleep(5)
+                        time.sleep(8)
                         self.user_query_button_click(test_into_userpage)#停用后点击查询
                         logger.info('启用后点击查询')
                         new_number = self.assert_table_number_text(test_into_userpage)  # 启用后用户数

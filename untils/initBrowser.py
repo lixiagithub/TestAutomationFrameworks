@@ -10,31 +10,43 @@ import random #导入随机选取
 import time #导入强制等待时间
 from selenium.webdriver.support.ui import Select #导入下拉列表定位
 
-
-# from selenium import webdriver
-# from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-# import time, os.path
-# import gird_module
-# for host, browser in gird_module.grid().items():
-#     driver = webdriver.Remote(
-#         command_executor=host,
-#         desired_capabilities={
-#             'platform': 'ANY',
-#             'browserName': browser,
-#             'version': '',
-#             'javascriptEnabled': True
+# def browsertype(host,browser):
+#     '''
+#     根据yaml配置文件，初始化浏览器
+#     类型，运行环境，用例的url
+#     :return: 浏览器对象
+#     '''
+#     if baseConfig.browser['env']=='docker':
+#         print('开始启动docker模式')
+#         # chrome_capabilities = {
+#         #     "browserName": "chrome",
+#         # }
+#         # driver = webdriver.Remote("http://132.138.7.132:5555/wd/hub", desired_capabilities=chrome_capabilities)
+#
+#         desired_capabilities = {
+#              'platform': 'ANY',
+#              'browserName': browser,
+#              'version': '',
+#              'javascriptEnabled': True
 #         }
-#     )
-#     driver.get("http://www.baidu.com")
-#     driver.find_element_by_id("kw").send_keys(u"中国")
-#     driver.find_element_by_id("su").click()
-#     time.sleep(3)
-#     if driver.title == u"中国_百度搜索":
-#         print("title匹配！")
+#         driver = webdriver.Remote(host, desired_capabilities=desired_capabilities)
+#
 #     else:
-#         print("title不匹配！")
-#     driver.close()
-
+#         options=webdriver.ChromeOptions()#谷歌浏览器的可选项对象
+#         if baseConfig.browser['env']=='headless':
+#             options.add_argument('headless')
+#         if baseConfig.browser['type']=='chrome':
+#             driver=webdriver.Chrome(options=options,executable_path=baseConfig.chrome_driver_path)
+#         elif baseConfig.browser['type']=='firefox':
+#             driver=webdriver.Firefox(executable_path=baseConfig.firefox_driver_path)
+#         elif baseConfig.browser['type']=='ie':
+#             driver=webdriver.Ie()
+#         else:
+#             raise ('没有支持的浏览器类型{}'.format(baseConfig.browser['type']))
+#     driver.get(baseConfig.ui['test'])
+#     driver.maximize_window()  # 浏览器最大化
+#     driver.save_screenshot(baseConfig.picturePath+r'\login.png')
+#     return driver
 def browsertype():
     '''
     根据yaml配置文件，初始化浏览器
@@ -304,6 +316,10 @@ class BrowserInit():
             return total_number.strip()#去掉左右空格
         else:
             return "0"
+
+    def switch_to_default_iframe(self):
+        '''推出iframe'''
+        self.driver.switch_to.default_content()
 
     '''鼠标移动'''
 

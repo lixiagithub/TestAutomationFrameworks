@@ -4,7 +4,7 @@
 
 def grid():
     d = {
-        '192.168.1.34:1122/wd/hub' : 'chrome',
-        '192.168.1.34:2233/wd/hub' : 'chrome',
+        '132.138.7.182:5588/wd/hub': 'firefox',
+        '132.134.10.126:5577/wd/hub': 'chrome'
         }
     return d

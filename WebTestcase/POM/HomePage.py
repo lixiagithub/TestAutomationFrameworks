@@ -17,6 +17,10 @@ class HomePage():
     # def sosuo(self,openbrowser,value):
     #     openbrowser.send_key_my(HomePage.search_input, value)
     #     openbrowser.click_my(HomePage.search_button)
-
     assert_user_name=(By.XPATH, '// *[ @ id = "page-wrapper"] / div[1] / nav / div[2] / ul / li[3] / a / span')#右上角用户名
-    #assert_user_name = (By.XPATH,'/ html / body / div[1] / div / div / div[2] / div[1] / h3 / text()')  #欢迎您登陆平台
+    assert_login_in = (By.XPATH,'/ html / body / div[1] / div / div / div[2] / div[1] / h3 / small')  #欢迎您登陆平台
+    main_iframe=(By.XPATH,'//*[@id="main_iframe"]')#用户页面iframe
+
+    def into_main_iframe(self,openbrowser):
+        '''封装进入iframe'''
+        openbrowser.is_iframe(HomePage.main_iframe)
