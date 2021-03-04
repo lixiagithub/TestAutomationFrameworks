@@ -1,6 +1,7 @@
 '''场景：用例执行之前，连接数据库，查前置数据'''
 import pymysql
 from untils.readYaml import baseConfig
+from untils import tool
 api_database=baseConfig.apidatabase
 web_database=baseConfig.webdatabase
 class Exe_SQL():
@@ -65,5 +66,6 @@ def execute_web(sql):
 
 if __name__ == '__main__':
     #res=execute_api('select * from user limit 5')
-    res = execute_web("SELECT c.communist_name,r.role_name,u.* FROM sp_sys_user u LEFT JOIN sp_sys_role r ON r.role_id = u.user_role LEFT JOIN sp_hr_communist c ON c.communist_no = u.user_relation_no WHERE u.status = 1 AND r.role_name = '基层管理员' AND (c.communist_name LIKE '%王鹏%' OR c.communist_no LIKE '%王鹏%')")
+    res = execute_web("select * from sp_cms_article WHERE article_cat in (SELECT cat_id FROM sp_cms_article_category WHERE cat_id = 10 or cat_pid = 10) AND article_title like '%测试空管资讯标题%' AND add_time BETWEEN '"+tool.get_date_time()+" 00:00:00' AND '"+tool.get_date_time()+" 23:59:59' ORDER BY istop desc,article_order desc,add_time desc limit 0,10")
+    # res = execute_web ('select * from sp_cms_article limit 5')
     print(len(res),res)

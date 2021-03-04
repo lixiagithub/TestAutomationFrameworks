@@ -4,6 +4,7 @@
 from selenium.webdriver.common.by import By
 import time
 class UserManagementPage():
+    user_tab_close_button = (By.XPATH, '/html/body/div[2]/div/div[2]/nav/div/a[2]/i')  # 空管资讯页面关闭
     root_node=(By.XPATH,'// *[ @ id = "treeDemo"]')#党组织列表
     all_node = (By.XPATH,'// *[ @ id = "treeDemo"]/a')#所有节点
     user_iframe=(By.XPATH,'// *[ @ id = "content-main"] / iframe[2]')#用户页面iframe
@@ -55,6 +56,10 @@ class UserManagementPage():
     user_block_up=(By.XPATH, '//*[@id="client_table"]/tbody/tr[1]/td[10]/a[2]')#第一个停用按钮
     '''启用'''
     user_start_using = (By.XPATH, '//*[@id="client_table"]/tbody/tr[1]/td[10]/a[2]')  # 第一个启用用按钮
+
+    def click_user_tab_close_button(self, openbrowser):
+        '''封装点击新增按钮'''
+        openbrowser.click_my(UserManagementPage.user_tab_close_button)
 
     def click_user_add_button(self,openbrowser):
         '''封装点击新增按钮'''

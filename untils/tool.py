@@ -48,6 +48,12 @@ def get_current_time():
     """
     return str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 
+def get_date_time():
+    """
+    获取当前时间，返回YYYY-mm-dd格式的时间字符串
+    """
+    return str(time.strftime('%Y-%m-%d', time.localtime(time.time())))
+
 
 def generate_phone(top=None):
     # 第二位数字
@@ -118,6 +124,26 @@ def get_api_excel_case():
         casesInfo=cases
     return casesInfo
 
+def getRandomSet(bits):
+    '''随机生成定长的小写字母和数字组合。'''
+    num_set = [chr(i) for i in range(48,58)]
+    char_set = [chr(i) for i in range(97,123)]
+    total_set = num_set + char_set
+
+    value_set = "".join(random.sample(total_set, bits))
+
+    return value_set
+
+def generate_random_str(randomlength=16):
+  """
+  生成一个指定长度的随机字符串
+  """
+  random_str = ''
+  base_str = 'ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz0123456789'
+  length = len(base_str) - 1
+  for i in range(randomlength):
+    random_str += base_str[random.randint(0, length)]
+  return random_str
 
 if __name__ == '__main__':
     #print(get_host())
@@ -126,4 +152,6 @@ if __name__ == '__main__':
     #print(generate_phone())
     #print(generate_idcard())
     #print(md5(123))
-    print(get_api_excel_case())
+    #print(get_api_excel_case())
+    #print(generate_random_str(150))
+    print(get_date_time())

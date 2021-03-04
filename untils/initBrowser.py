@@ -118,6 +118,14 @@ class BrowserInit():
         logger.info('在{0}：这个元素输入了：{1}'.format(loc[1],value))
         ele.send_keys(value)
 
+    def send_key_my_action(self,loc,value):
+        '''封装输入框操作'''
+        ele=self.until_element_visible(loc)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(ele).send_keys(value).perform()
+        logger.info('在{0}：这个元素输入了：{1}'.format(loc[1],value))
+        ele.send_keys(value)
+
     def click_my(self,loc):
         '''封装点击操作'''
         ele=self.until_element_visible(loc)
@@ -216,6 +224,22 @@ class BrowserInit():
         element = self.until_element_visible(loc)
         ActionChains(self.driver).move_to_element(element).perform()
 
+    def random_select_pic(self,locs):
+        '''随机选择图片'''
+        choice_list = self.until_elements_visible(locs)#定位所有图片元素
+        index = random.randint(1, len(choice_list))
+        # choice_loc = random.choice(choice_list)
+        #print('随机选择的下拉元素{}'.format(li_choice), li_choice.text)
+        self.mouse_move((By.XPATH, '// *[ @ id = "js-grid-juicy-projects"] / div / div / div[{}] / div / div / div / div[1] / img'.format(index)))
+        self.click_my((By.XPATH, '// *[ @ id = "js-grid-juicy-projects"] / div / div / div[{}] / div / div / div / div[2] / div / div / a[2]'.format(index)))
+        logger.info('随机选择了一张图片的index:{}'.format(index))
+        # // *[ @ id = "js-grid-juicy-projects"] / div / div / div[1] / div / div / div / div[1] / img
+        # // *[ @ id = "js-grid-juicy-projects"] / div / div / div[2] / div / div / div / div[1] / img
+        # // *[ @ id = "js-grid-juicy-projects"] / div / div / div[3] / div / div / div / div[1] / img
+        # // *[ @ id = "js-grid-juicy-projects"] / div / div / div[1] / div / div / div / div[2] / div / div / a[2]
+        # // *[ @ id = "js-grid-juicy-projects"] / div / div / div[2] / div / div / div / div[2] / div / div / a[2]
+        # // *[ @ id = "js-grid-juicy-projects"] / div / div / div[3] / div / div / div / div[2] / div / div / a[2]
+
     def is_iframe(self, loc):
         '''判断是否存在ifame'''
         wait_time=10
@@ -272,6 +296,24 @@ class BrowserInit():
                 logger.info('js通过ById定位不到{}这个元素'.format(loc[1]))
                 return False
 
+    def execut_js_locs(self,loc):
+        if loc[0]==By.CLASS_NAME:
+            js="return document.getElementsByClassName('{}')".format(loc[1])
+            if len(self.driver.execute_script(js))>0:
+                logger.info('js通过ByClassName定位到{}这个元素'.format(loc[1]))
+                return self.driver.execute_script(js)
+            else:
+                logger.info('js通过ByClassName定位不到{}这个元素'.format(loc[1]))
+                return False
+        elif loc[0]==By.ID:
+            js = "document.getElementById('{}')".format(loc[1])
+            if len(self.driver.execute_script(js)) > 0:
+                logger.info('js通过ById定位到{}这个元素'.format(loc[1]))
+                return self.driver.execute_script(js)
+            else:
+                logger.info('js通过ById定位不到{}这个元素'.format(loc[1]))
+                return False
+
     def execute_js(self,js):
         '''执行js'''
         self.driver.execute_script(js)
@@ -301,11 +343,18 @@ class BrowserInit():
         li_choice.click()
 
     def select_ul_click(self,loc_li):
-        '''随机选择下拉列表内容'''
+        '''直接选择下拉列表特定内容'''
         li_choice = self.until_element_visible(loc_li)#定位所有li
         #print('随机选择的下拉元素{}'.format(li_choice), li_choice.text)
         logger.info('随机选择下拉文本:{}'.format(li_choice.text))
         li_choice.click()
+
+    def random_button_click(self,loc):
+        '''随机选择多个元素中的一个，进行点击，比如置顶，取消置顶'''
+        locs = self.execut_js_locs(loc)#定位所有相同元素
+        my_choice= random.choice(locs)
+        logger.info('随机选择点击:{}'.format(my_choice.text))
+        my_choice.click()
 
     def get_table_total_number(self,loc):
         '''获取表格记录总数'''
@@ -318,8 +367,10 @@ class BrowserInit():
             return "0"
 
     def switch_to_default_iframe(self):
-        '''推出iframe'''
+        '''退出iframe'''
         self.driver.switch_to.default_content()
+
+
 
     '''鼠标移动'''
 

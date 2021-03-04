@@ -12,7 +12,7 @@ runAPIS: [5,3,1]   #批量用例的编写,一个场景的用例
 
 browser:
     type: chrome  #ie firefox chrome
-    env: docker  #localhost  #headless #selenium_grid #docker
+    env: localhost  #localhost  #headless #selenium_grid #docker
 
 apidatabase:
     username: root
@@ -22,9 +22,9 @@ apidatabase:
 
 webdatabase:
     username: root
-    password: 123456
-    dbname: pbapp
-    serve: 132.138.7.112
+    password: ATMB#3745
+    dbname: bjthx
+    serve: 132.134.10.126
 
 appdata:
     devicesname: f0bc0371

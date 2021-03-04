@@ -7,18 +7,13 @@ from log.log import logger
 from untils.op_mysql import execute_web #数据库连接
 import time
 class TestUser(UserManagementPage,Menu):
-
-    def teardown_function(self,login):
-        print("teardown_function：每个用例结束后都会执行,双击用户管理菜单项")
-
-
     @pytest.fixture(scope="class")
     def test_into_userpage(self,login):
         '''进入用户管理页面'''
         if login:
             '''用例：登录之后，点击系统管理，点击用户管理，进入用户管理页面'''
             try:
-                #退出出iframe
+                #退出iframe
                 login.switch_to_default_iframe()
                 #进入用户管理页面
                 self.into_user_page(login)
@@ -28,6 +23,10 @@ class TestUser(UserManagementPage,Menu):
                 if self.assert_page_textcontent(login):
                     logger.info('进入用户管理页面成功')
                     yield login
+                    print('所有类的用例执行完毕,执行后置操作')
+                    login.switch_to_default_iframe()  # 退出iframe
+                    self.click_user_tab_close_button(login)  # 点击tab关闭按钮
+                    logger.info("关闭用户管理tab")
                 else:
                     logger.info('进入用户管理页面失败')
                     assert False,'进入用户管理页面失败'
@@ -62,7 +61,7 @@ class TestUser(UserManagementPage,Menu):
                 yield False,node_text,old_number
                 assert False, '确定新增弹窗失败'
 
-    @pytest.mark.skip()
+    # @pytest.mark.skip()
     def test_add_user(self, test_random_click_node):
         '''新增用户'''
         if test_random_click_node[0]:
@@ -162,9 +161,9 @@ class TestUser(UserManagementPage,Menu):
                 logger.info('进入用户管理页面失败')
                 assert False, '进入用户管理页面失败'
         else:
-            logger.info('没有进入用户添加界面，不执行用户编辑')
+            logger.info('没有进入用户修改界面，不执行用户编辑')
 
-    @pytest.mark.skip()
+    # @pytest.mark.skip()
     def test_query_user(self,test_into_userpage):
         '''下拉组合查询'''
         if test_into_userpage:  # 进入用户管理界面才会有导航栏
@@ -188,7 +187,7 @@ class TestUser(UserManagementPage,Menu):
                 logger.info('进入用户管理页面失败')
                 assert False, '进入用户管理页面失败'
         else:
-            logger.info('没有进入用户添加界面，不执行用户查询')
+            logger.info('没有进入用户管理界面，不执行用户查询')
 
     def test_user_block_up(self, test_into_userpage):
         '''停用用户'''
@@ -226,7 +225,7 @@ class TestUser(UserManagementPage,Menu):
                 logger.info('进入用户管理页面失败')
                 assert False, '进入用户管理页面失败'
         else:
-            logger.info('没有进入用户添加界面，不执行用户停用')
+            logger.info('没有进入用户管理界面，不执行用户停用')
 
     def test_user_start_using(self, test_into_userpage):
         '''启用用户'''
@@ -263,4 +262,4 @@ class TestUser(UserManagementPage,Menu):
                 logger.info('进入用户管理页面失败')
                 assert False, '进入用户管理页面失败'
         else:
-            logger.info('没有进入用户添加界面，不执行用户启用')
+            logger.info('没有进入用户管理界面，不执行用户启用')
