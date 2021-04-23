@@ -153,16 +153,19 @@ class BrowserInit():
         ran_node_text=ran_node.text
         #print('随机点击的树形节点{}'.format(ran_node),ran_node.text)
         return ran_node_text
-        # node_id_split=ran_node_id.split('_')#拆分节点id
-        # node_id_new =  node_id_split[0] + '_' + node_id_split[1] + '_switch'#组合成树形箭头id
-        # self.click_my((By.ID,node_id_new))#点击树形箭头，展开二级菜单
-        #time.sleep(2)
-        # logger.info('随机点击了这个树形元素中的这个元素')
-        # ele=self.until_elements_visible(loc)
-        # print(ele,len(ele))
-        # ran_ele=random.choice(ele)
-        # logger.info('随机点击了{0}这个树形元素中的{1}这个元素'.format(loc[1],ran_ele))
-        # ran_ele.click()
+
+    def random_click_node(self,loc_li):
+        '''封装树形节点随机点击操作，返回点击节点的文本'''
+        li_choice_list = self.until_elements_visible(loc_li)  # 定位所有li
+        li_choice = random.choice(li_choice_list)
+        # print('随机选择的下拉元素{}'.format(li_choice), li_choice.text)
+        ran_node_text = li_choice.text
+        logger.info('随机选择树形节点文本:{}'.format(ran_node_text))
+        my_loc = li_choice.find_element_by_xpath('a') #通过li获取a
+        # ran_node_id = li_choice.get_attribute('id')  # 获取节点id
+        # self.click_my((By.ID, ran_node_id))
+        my_loc.click()
+        return ran_node_text
 
     def get_text(self,loc):
         '''返回页面元素的文本'''
@@ -346,7 +349,7 @@ class BrowserInit():
         '''直接选择下拉列表特定内容'''
         li_choice = self.until_element_visible(loc_li)#定位所有li
         #print('随机选择的下拉元素{}'.format(li_choice), li_choice.text)
-        logger.info('随机选择下拉文本:{}'.format(li_choice.text))
+        logger.info('直接选择下拉文本:{}'.format(li_choice.text))
         li_choice.click()
 
     def random_button_click(self,loc):

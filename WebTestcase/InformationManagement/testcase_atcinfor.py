@@ -8,7 +8,7 @@ from log.log import logger
 from untils import tool
 from untils.op_mysql import execute_web #数据库连接
 import time
-class TestUser(AtcInformeationPage,Menu):
+class TestAtcinfor(AtcInformeationPage,Menu):
     @pytest.fixture(scope="class")
     def test_into_atcinforpage(self,login):
         '''进入空管资讯管理页面'''

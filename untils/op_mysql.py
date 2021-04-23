@@ -12,11 +12,11 @@ class Exe_SQL():
         self.serve = serve
 
 
-    def exce_sql(self,sql):
+    def exce_sql_api(self,sql):
         db_connect=pymysql.connect(host=self.serve,
-                                   port=3307,
+                                   port=3306,
                                    user=self.username,
-                                   passwd=self.password,
+                                   passwd=str(self.password),
                                    charset='utf8',
                                    database=self.dbname,
                                    autocommit=True)
@@ -53,7 +53,7 @@ def execute_api(sql):
                    password=api_database['password'],
                    dbname=api_database['dbname'],
                    serve=api_database['serve'])
-    res=connet.exce_sql(sql)
+    res=connet.exce_sql_api(sql)
     return res
 
 def execute_web(sql):
@@ -65,7 +65,8 @@ def execute_web(sql):
     return res
 
 if __name__ == '__main__':
-    #res=execute_api('select * from user limit 5')
-    res = execute_web("select * from sp_cms_article WHERE article_cat in (SELECT cat_id FROM sp_cms_article_category WHERE cat_id = 10 or cat_pid = 10) AND article_title like '%测试空管资讯标题%' AND add_time BETWEEN '"+tool.get_date_time()+" 00:00:00' AND '"+tool.get_date_time()+" 23:59:59' ORDER BY istop desc,article_order desc,add_time desc limit 0,10")
+    # res=execute_api('select * from user limit 5')
+    # res = execute_web("select * from sp_cms_article WHERE article_cat in (SELECT cat_id FROM sp_cms_article_category WHERE cat_id = 10 or cat_pid = 10) AND article_title like '%测试空管资讯标题%' AND add_time BETWEEN '"+tool.get_date_time()+" 00:00:00' AND '"+tool.get_date_time()+" 23:59:59' ORDER BY istop desc,article_order desc,add_time desc limit 0,10")
     # res = execute_web ('select * from sp_cms_article limit 5')
+    res= execute_api("SELECT * FROM tb_training_tag where tag_name like '%理论%' and pid='62543b49e3804dba92c88b28c15193d0'")
     print(len(res),res)

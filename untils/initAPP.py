@@ -1,4 +1,5 @@
 import uiautomator2 as ut2
+from appium import webdriver
 from untils.readYaml import baseConfig
 appdata=baseConfig.appdata
 picturePath=baseConfig.picturePath
@@ -60,5 +61,5 @@ class Initapp():
             f = file.read()
             import allure
             allure.attach(f, 'app错误截图', allure.attachment_type.JPG)
-        raise ("等待了5miao没有找到该元素")
+        raise ("等待了5秒没有找到该元素")
 

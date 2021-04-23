@@ -24,7 +24,7 @@ class Config:
     logger_path=BasePath+'/log'
     TIQU_PATH=BasePath+r'/config/tiqu.xlsx'
     APICASE_YAML_PATH=BasePath+r'/config/apitestcase.yaml'
-    APICASE_EXCEL_PATH=BasePath+r'/config/apitestcase.xlsx'
+    APICASE_EXCEL_PATH=BasePath+r'/config/examtestcase.xlsx'
     API_REPORT_PATH=BasePath+r'/report'
     InterFace_PATH=BasePath+r'/InterfaceTestcase'
 

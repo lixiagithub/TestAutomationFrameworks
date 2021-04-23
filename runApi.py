@@ -27,5 +27,5 @@ if __name__ == '__main__':
     suite=creatsuite() #创建测试套件
     file_name=r'{}\api_report.html'.format(baseConfig.API_REPORT_PATH)
     f=open(file_name,'wb')
-    runner=HTMLTestRunner(stream=f,title='华测接口自动化项目',description='xx模块')
+    runner=HTMLTestRunner(stream=f,title='安管部考试系统接口自动化项目',description='')
     runner.run(suite)
