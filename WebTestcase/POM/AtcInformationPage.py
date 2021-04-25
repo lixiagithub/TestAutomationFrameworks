@@ -65,6 +65,13 @@ class AtcInformeationPage():
     atcinfor_canceltop_alert_cancel_button = (By.CLASS_NAME, 'layui-layer-btn1')  # 空管资讯置顶取消按钮
     assert_canceltop_message_text = (By.CLASS_NAME, 'layui-layer-content')  # 空管资讯置顶是否成功文本
 
+    '''删除'''
+    atcinfor_delete_button = (By.CLASS_NAME, 'btn red btn-xs btn-outline')  # 空管资讯删除按钮
+    assert_atcinfor_delete_alert_text = (By.CLASS_NAME, 'layui-layer-content')  # 空管资讯删除提示框文本校验
+    atcinfor_delete_alert_submit_button = (By.CLASS_NAME, 'layui-layer-btn0')  # 空管资讯删除确定按钮
+    atcinfor_delete_alert_cancel_button = (By.CLASS_NAME, 'layui-layer-btn1')  # 空管资讯删除取消按钮
+    assert_delete_message_text = (By.CLASS_NAME, 'layui-layer-content')  # 空管资讯删除是否成功文本
+
     def click_atcinfor_tab_close_button(self, openbrowser):
         '''封装点击新增按钮'''
         openbrowser.click_my(AtcInformeationPage.atcinfor_tab_close_button)
@@ -250,4 +257,24 @@ class AtcInformeationPage():
     def assert_canceltop_message_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
         res = openbrowser.is_text_in_element(AtcInformeationPage.assert_canceltop_message_text, "取消置顶成功")
+        return res
+
+    '''封装删除'''
+
+    def atcinfor_delete_button_click(self, openbrowser):
+        '''封装随机点击删除'''
+        openbrowser.random_button_click(AtcInformeationPage.atcinfor_delete_button)  # 随机点击删除按钮
+
+    def assert_atcinfor_delete_alert_textcontent(self, openbrowser):
+        '''封装判断页面文本是否一致,来判断是否弹出删除对话框'''
+        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_atcinfor_delete_alert_text, "确定删除吗？")
+        return res
+
+    def atcinfor_delete_alert_submit_button_click(self, openbrowser):
+        '''封装点击确定按钮'''
+        openbrowser.click_my(AtcInformeationPage.atcinfor_delete_alert_submit_button)  # 点击确定按钮
+
+    def assert_delete_message_textcontent(self, openbrowser):
+        '''封装判断页面文本是否一致,来判断是否删除成功'''
+        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_delete_message_text, "删除成功")
         return res

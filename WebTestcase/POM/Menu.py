@@ -12,11 +12,11 @@ class Menu():
     menu_user_management = (By.XPATH, '//*[@id="side-menu"]/li[12]/ul/li[5]')  # 用户管理
 
     menu_information_management_dom = '#side-menu > li:nth-child(3)'  # 资讯管理document定位
-    menu_information_management = (By.XPATH, '//*[@id="side-menu"]/li[3]')  # 主菜单资讯管理
+    menu_information_management = (By.XPATH, '/html/body/div[2]/nav/div[3]/div[1]/ul/li[3]/a')  # 主菜单资讯管理
     menu_atcinfor_management_dom = '#side-menu > li.active > ul > li:nth-child(1) > a'  # 空管资讯管理document定位
-    menu_atcinfor_management = (By.XPATH, '//*[@id="side-menu"]/li[3]/ul/li[1]')  # 空管资讯管理
+    menu_atcinfor_management = (By.XPATH, '/html/body/div[2]/nav/div[3]/div[1]/ul/li[3]/ul/li[1]')  # 空管资讯管理
     menu_party_building_dynamic_dom = '#side-menu > li.active > ul > li:nth-child(2) > a'  # 党建动态管理document定位
-    menu_party_building_dynamic = (By.XPATH, '//*[@id="side-menu"]/li[3]/ul/li[2]')  # 党建动态管理
+    menu_party_building_dynamic = (By.XPATH, '/html/body/div[2]/nav/div[3]/div[1]/ul/li[3]/ul/li[2]')  # 党建动态管理
 
 
 

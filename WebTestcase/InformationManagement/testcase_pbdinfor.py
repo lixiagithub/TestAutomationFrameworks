@@ -83,12 +83,31 @@ class TestPbdinfor(PartyBuildingDynamicPage, Menu):
             assert False, '进入党建动态页面失败,无法进行添加'
 
     # @pytest.mark.skip()
+    def test_query_pbdinfor(self, test_into_pbdinforpage, global_data):
+        '''查询'''
+        if test_into_pbdinforpage:  # 进入党建动态界面
+            self.pbdinfor_query(test_into_pbdinforpage, self.pbd_name)  # 查询党建动态
+            logger.info('点击了查询按钮')
+            time.sleep(2)
+            table_number_text = self.assert_table_number_text(test_into_pbdinforpage)
+            query_str = "SELECT * FROM `sp_pbd_article` WHERE `type_id` = " + self.get_pbdinfor_classify(
+                global_data[
+                    'pbdinfor_classify']) + " AND `pbd_name` LIKE '" + self.pbd_name + "' ORDER BY update_time desc LIMIT 0,10 "
+            db_query_res = execute_web(query_str)
+            logger.info('table结果数{0}：数据库查询结果数{1}'.format(table_number_text, len(db_query_res)))  # 获取查询数量
+            assert int(table_number_text) == len(db_query_res), 'table结果数{0}：数据库查询结果数{1}'.format(table_number_text,
+                                                                                                 len(db_query_res))
+        else:
+            logger.info('没有进入党建动态界面，不执行查询用例')
+            assert False, '没有进入党建动态界面，不执行查询用例'
+
+    # @pytest.mark.skip()
     def test_update_pbdinfor(self, test_into_pbdinforpage):
         '''修改空管资讯'''
         if test_into_pbdinforpage:  # 进入空管资讯界面
             title_text = self.get_table_pbdinfor_title_text(test_into_pbdinforpage)  # 获取列表中标题文本
             self.pbdinfor_update_button_click(test_into_pbdinforpage)  # 点击编辑按钮
-            if self.assert_page_update_textcontent(test_into_pbdinforpage):  # 判断是否打开新增界面
+            if self.assert_page_update_textcontent(test_into_pbdinforpage):  # 判断是否打开修改界面
                 logger.info('进入了党建动态编辑页面')
                 test_into_pbdinforpage.driver.switch_to.frame(0)  # 进入第二层修改iframe
                 assert self.assert_update_table_pbdinfor_title_text(test_into_pbdinforpage,
@@ -108,19 +127,63 @@ class TestPbdinfor(PartyBuildingDynamicPage, Menu):
             logger.info('没有进入党建动态界面，不执行党建动态编辑用例')
             assert False, '没有进入党建动态界面，不执行党建动态编辑用例'
 
+
     # @pytest.mark.skip()
-    def test_query_pbdinfor(self, test_into_pbdinforpage, global_data):
-        '''查询'''
+    def test_detail_pbdinfor(self, test_into_pbdinforpage, global_data):
+        '''详情'''
         if test_into_pbdinforpage:  # 进入党建动态界面
-            self.pbdinfor_query(test_into_pbdinforpage, self.pbd_name)  # 查询党建动态
-            logger.info('点击了查询按钮')
-            time.sleep(2)
-            table_number_text = self.assert_table_number_text(test_into_pbdinforpage)
-            query_str = "SELECT * FROM `sp_pbd_article` WHERE `type_id` = "+self.get_pbdinfor_classify(global_data['pbdinfor_classify'])+" AND `pbd_name` LIKE '"+self.pbd_name+"' ORDER BY update_time desc LIMIT 0,10 "
-            db_query_res = execute_web(query_str)
-            logger.info('table结果数{0}：数据库查询结果数{1}'.format(table_number_text, len(db_query_res)))  # 获取查询数量
-            assert int(table_number_text) == len(db_query_res), 'table结果数{0}：数据库查询结果数{1}'.format(table_number_text,
-                                                                                                 len(db_query_res))
+            self.pbdinfor_detail_button_click(test_into_pbdinforpage)  # 点击详情按钮
+            logger.info('点击了详情按钮')
+            if self.assert_page_detail_textcontent(test_into_pbdinforpage):  # 判断是否打开详情界面
+                logger.info('进入了党建动态详情页面')
+                test_into_pbdinforpage.driver.switch_to.frame(0)  # 进入第二层详细iframe
+                message = self.assert_detail_textcontent(test_into_pbdinforpage, self.pbd_name, self.pbd_desc, self.pbd_editor)#校验详情信息
+                if message[0]:
+                    logger.info(message[1])
+                    self.pbdinfor_like_button_click(test_into_pbdinforpage)  # 点击点赞连接
+                    if self.assert_page_like_textcontent(test_into_pbdinforpage):  #判断是否进入点赞详情页面
+                        logger.info('进入党建动态点赞详情界面成功')
+                        self.pbdinfor_like_back_button_click(test_into_pbdinforpage)#点击返回按钮
+                        test_into_pbdinforpage.switch_to_parent_iframe() #进入党建动态iframe
+                        logger.info('返回党建动态iframe')
+                        self.pbdinfor_like_close_button_click(test_into_pbdinforpage)#关闭
+                        logger.info('关闭详情页')
+                    else:
+                        logger.info('进入党建动态点赞详情界面失败')
+                        test_into_pbdinforpage.switch_to_parent_iframe()  # 进入党建动态iframe
+                        logger.info('返回党建动态iframe')
+                        self.pbdinfor_like_close_button_click(test_into_pbdinforpage)  # 关闭
+                        logger.info('关闭详情页')
+                        assert False, '进入党建动态点赞详情界面失败'
+                else:
+                    logger.info(message[1])
+                    assert False, message[1]
+            else:
+                logger.info('进入党建动态详情界面失败')
+                assert False, '进入党建动态详情界面失败'
         else:
-            logger.info('没有进入党建动态界面，不执行查询用例')
-            assert False, '没有进入党建动态界面，不执行查询用例'
+            logger.info('没有进入党建动态界面，不执行查看详情用例')
+            assert False, '没有进入党建动态界面，不执行查看详情用例'
+
+    # @pytest.mark.skip()
+    def test_delete_pbdinfor(self, test_into_pbdinforpage, global_data):
+        '''删除'''
+        if test_into_pbdinforpage:  # 进入党建动态界面
+            self.pbdinfor_delete_button_click(test_into_pbdinforpage)  # 点击删除按钮
+            logger.info('点击了删除按钮')
+            if self.assert_pbdinfor_delete_alert_textcontent(test_into_pbdinforpage):  # 判断是否弹出删除对话框
+                logger.info('弹出了删除对话框')
+                self.pbdinfor_delete_alert_submit_button_click(test_into_pbdinforpage)  # 点击确定按钮
+                if self.assert_delete_message_textcontent(test_into_pbdinforpage):  # 判断是否删除成功
+                    logger.info('党建动态删除成功')
+                    assert True, '党建动态删除成功'
+                else:
+                    logger.info('党建动态删除失败')
+                    assert False, '党建动态删除失败'
+
+            else:
+                logger.info('没有弹出删除对话框')
+                assert False, '没有弹出删除对话框'
+        else:
+            logger.info('没有进入党建动态界面，不执行删除用例')
+            assert False, '没有进入党建动态界面，不执行删除用例'

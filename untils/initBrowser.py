@@ -373,7 +373,9 @@ class BrowserInit():
         '''退出iframe'''
         self.driver.switch_to.default_content()
 
-
+    def switch_to_parent_iframe(self):
+        '''返回到父iframe'''
+        self.driver.switch_to.parent_frame()
 
     '''鼠标移动'''
 

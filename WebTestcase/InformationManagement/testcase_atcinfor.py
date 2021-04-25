@@ -29,6 +29,8 @@ class TestAtcinfor(AtcInformeationPage,Menu):
                     login.switch_to_default_iframe() #退出iframe
                     self.click_atcinfor_tab_close_button(login) #点击tab关闭按钮
                     logger.info("关闭空管资讯tab")
+                    self.click_information_management(login)  # 点击咨询管理，收回下拉菜单
+                    logger.info("点击咨询管理，收回下拉菜单")
                 else:
                     logger.info('进入空管资讯页面失败')
                     assert False,'进入空管资讯页面失败'
@@ -151,7 +153,20 @@ class TestAtcinfor(AtcInformeationPage,Menu):
     def test_delete_atcinfor(self, test_into_atcinforpage):
         '''删除空管资讯'''
         if test_into_atcinforpage:  #进入空管资讯界面
-            pass
+            time.sleep(2)
+            self.atcinfor_delete_button_click(test_into_atcinforpage)  # 随机点击一个删除按钮
+            if self.assert_atcinfor_delete_alert_textcontent(test_into_atcinforpage):  # 判断是否弹出删除对话框
+                logger.info('已经弹出删除对话框')
+                self.atcinfor_delete_alert_submit_button_click(test_into_atcinforpage)  # 点击确定按钮
+                if self.assert_delete_message_textcontent(test_into_atcinforpage):  # 判断是否删除成功
+                    logger.info('空管资讯删除成功')
+                    assert True, '空管资讯删除成功'
+                else:
+                    logger.info('空管资讯删除失败')
+                    assert False, '空管资讯删除失败'
+            else:
+                logger.info('没有弹出取消置顶对话框')
+                assert False, '没有弹出取消置顶对话框'
         else:
             logger.info('没有进入空管资讯界面，不执行删除用例')
             assert False, '没有进入空管资讯界面，不执行删除用例'
