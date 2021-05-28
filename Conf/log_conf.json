@@ -1,0 +1,17 @@
+{
+    "root": "",
+    "logfile": false,
+    "debug": false,
+    "logfile_dir": "Logs",
+    "mq": {
+        "enable": false,
+        "ip": "",
+        "port": 5672,
+        "username": "",
+        "password": "",
+        "exchange": "",
+        "routing_key": "",
+        "compress": false,
+        "self_log": false
+    }
+}

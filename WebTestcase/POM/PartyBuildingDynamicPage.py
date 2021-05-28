@@ -37,8 +37,8 @@ class PartyBuildingDynamicPage():
     table_pbdinfor_title_text = (By.XPATH, '//*[@id="client_table"]/tbody/tr/td[3]')  # 列表中的文章名称
     pbdinfor_update_title_text = (By.XPATH, '//*[@id="pbd_name"]')  # 编辑页面文章名称-回显
     assert_page_update_text = (By.CLASS_NAME, 'layui-layer-title')  # 党建动态修改文本title校验
-    pbdinfor_update_submit_button = (By.XPATH, "//*[text()='修改']")  # 党建动态新增提交按钮
-    pbdinfor_update_cancel_button = (By.XPATH, "//*[text()='取消']")  # 党建动态新增取消按钮
+    pbdinfor_update_submit_button = (By.XPATH, "//*[text()='修改']")  # 党建动态修改提交按钮
+    pbdinfor_update_cancel_button = (By.XPATH, "//*[text()='取消']")  # 党建动态修改取消按钮
     assert_update_message_text = (By.CLASS_NAME, 'layui-layer-content')  # 党建动态修改是否成功文本
 
     '''查询'''
@@ -65,7 +65,7 @@ class PartyBuildingDynamicPage():
     assert_delete_message_text = (By.CLASS_NAME, 'layui-layer-content')  # 党建动态删除是否成功文本
 
     def click_pbdinfor_tab_close_button(self, openbrowser):
-        '''封装点击新增按钮'''
+        '''封装点击关闭按钮'''
         openbrowser.click_my(PartyBuildingDynamicPage.pbdinfor_tab_close_button)
 
     def into_pbdinfor_iframe(self, openbrowser):
@@ -73,7 +73,7 @@ class PartyBuildingDynamicPage():
         openbrowser.is_iframe(PartyBuildingDynamicPage.pbdinfor_iframe)
 
     def assert_page_textcontent(self, openbrowser):
-        '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
+        '''封装判断页面文本是否一致,来判断是否进入党建动态页面'''
         res = openbrowser.is_text_in_element(PartyBuildingDynamicPage.assert_page_text, "党建动态列表")
         return res
 
@@ -89,7 +89,7 @@ class PartyBuildingDynamicPage():
 
     '''封装新增'''
 
-    def click_atcinfor_add_button(self, openbrowser):
+    def click_pbdinfor_add_button(self, openbrowser):
         '''封装点击新增按钮'''
         openbrowser.click_my(PartyBuildingDynamicPage.pbdinfor_add_button)
 
@@ -197,7 +197,7 @@ class PartyBuildingDynamicPage():
     '''封装详情'''
 
     def pbdinfor_detail_button_click(self, openbrowser):
-        '''封装查询按钮点击'''
+        '''封装详情按钮点击'''
         openbrowser.click_my(PartyBuildingDynamicPage.pbdinfor_detail_button)
 
     def assert_page_detail_textcontent(self, openbrowser):
@@ -206,17 +206,17 @@ class PartyBuildingDynamicPage():
         return res
 
     def get_detail_pbd_name(self, openbrowser):
-        '''封装获取考生选择的答案内容'''
+        '''封装获取党建动态标题'''
         my_text = openbrowser.get_text(PartyBuildingDynamicPage.pbdinfor_detail_pbd_name)
         return my_text
 
     def get_detail_pbd_desc(self, openbrowser):
-        '''封装获取正确的答案'''
+        '''封装获取党建动态摘要'''
         my_text = openbrowser.get_text(PartyBuildingDynamicPage.pbdinfor_detail_pbd_desc)
         return my_text
 
     def get_detail_pbd_editor(self, openbrowser):
-        '''封装获取回答是否正确文本'''
+        '''封装获取党建动态内容'''
         my_text = openbrowser.get_text(PartyBuildingDynamicPage.pbdinfor_detail_pbd_editor)
         return my_text
 

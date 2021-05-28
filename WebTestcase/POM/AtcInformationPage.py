@@ -4,7 +4,7 @@
 from selenium.webdriver.common.by import By
 
 
-class AtcInformeationPage():
+class AtcInformationPage():
     atcinfor_tab_close_button = (By.XPATH, '/html/body/div[2]/div/div[2]/nav/div/a[2]/i')  # 空管资讯页面关闭
     atcinfor_iframe = (By.XPATH, '//*[@id="content-main"]/iframe[2]')  # 空管资讯页面iframe
     assert_page_text = (By.XPATH, '//*[@id="rdiva"]/div/span[1]')  # 空管资讯列表名
@@ -74,72 +74,72 @@ class AtcInformeationPage():
 
     def click_atcinfor_tab_close_button(self, openbrowser):
         '''封装点击新增按钮'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_tab_close_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_tab_close_button)
 
     def into_atcinfor_iframe(self, openbrowser):
         '''封装进入iframe'''
-        openbrowser.is_iframe(AtcInformeationPage.atcinfor_iframe)
+        openbrowser.is_iframe(AtcInformationPage.atcinfor_iframe)
 
     def into_atcinfor_add_iframe(self, openbrowser):
         '''封装进入iframe'''
-        openbrowser.is_iframe(AtcInformeationPage.atcinfor_add_iframe)
+        openbrowser.is_iframe(AtcInformationPage.atcinfor_add_iframe)
 
     def assert_page_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_page_text, "空管资讯")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_page_text, "空管资讯")
         return res
 
     '''封装新增'''
 
     def click_atcinfor_add_button(self, openbrowser):
         '''封装点击新增按钮'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_add_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_add_button)
 
     def assert_page_add_textcontent(self, openbrowser):
         '''封装判断添加页面文本是否一致'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_page_add_text, "空管资讯新增")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_page_add_text, "空管资讯新增")
         return res
 
     def atcinfor_add_title_input(self, openbrowser, input_text):
         '''封装输入文章标题'''
-        openbrowser.send_key_my(AtcInformeationPage.atcinfor_add_title, input_text)
+        openbrowser.send_key_my(AtcInformationPage.atcinfor_add_title, input_text)
 
     def atcinfor_add_time_select(self, openbrowser):
         '''封装选择时间--date日期框'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_add_time)  # 点击日期框，出现日期选择框
-        openbrowser.click_my(AtcInformeationPage.atcinfor_add_time_now_button)  # 点击现在按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_add_time)  # 点击日期框，出现日期选择框
+        openbrowser.click_my(AtcInformationPage.atcinfor_add_time_now_button)  # 点击现在按钮
 
     def atcinfor_add_order_input(self, openbrowser, input_text):
         '''封装输入排序'''
-        openbrowser.send_key_my(AtcInformeationPage.atcinfor_add_order, input_text)
+        openbrowser.send_key_my(AtcInformationPage.atcinfor_add_order, input_text)
 
     def atcinfor_add_keyword_input(self, openbrowser, input_text):
         '''封装输入关键字'''
-        openbrowser.send_key_my(AtcInformeationPage.atcinfor_add_keyword, input_text)
+        openbrowser.send_key_my(AtcInformationPage.atcinfor_add_keyword, input_text)
 
     def atcinfor_add_description_input(self, openbrowser, input_text):
         '''封装输入文章摘要'''
-        openbrowser.send_key_my(AtcInformeationPage.atcinfor_add_description, input_text)
+        openbrowser.send_key_my(AtcInformationPage.atcinfor_add_description, input_text)
 
     def atcinfor_add_editor_input(self, openbrowser, input_text):
         '''封装输入文章内容'''
-        openbrowser.send_key_my(AtcInformeationPage.atcinfor_add_editor, input_text)
+        openbrowser.send_key_my(AtcInformationPage.atcinfor_add_editor, input_text)
 
     def atcinfor_add_default_diagram_select(self, openbrowser):
         '''封装选择图库图片'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_add_default_diagram_button)  # 点击在图库选择默认图按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_add_default_diagram_button)  # 点击在图库选择默认图按钮
         openbrowser.driver.switch_to.frame(0)  # 进入第三层图片iframe
-        openbrowser.click_my(AtcInformeationPage.show_photo_album_select)  # 显示相册下拉列表
-        openbrowser.random_select_ul(AtcInformeationPage.select_photo_album_li)  # 随机选择相册下拉li
-        openbrowser.random_select_pic(AtcInformeationPage.select_photos)  # 随机选择一个photo
+        openbrowser.click_my(AtcInformationPage.show_photo_album_select)  # 显示相册下拉列表
+        openbrowser.random_select_ul(AtcInformationPage.select_photo_album_li)  # 随机选择相册下拉li
+        openbrowser.random_select_pic(AtcInformationPage.select_photos)  # 随机选择一个photo
 
     def atcinfor_add_submit_button_click(self, openbrowser):
         '''封装提交按钮点击'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_add_submit_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_add_submit_button)
 
     def atcinfor_add_cancel_button_click(self, openbrowser):
         '''封装取消按钮点击'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_add_cancel_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_add_cancel_button)
 
     def atcinfor_add(self, openbrowser, title, order, keyword, description, editor):
         '''封装空管资讯增加'''
@@ -155,22 +155,22 @@ class AtcInformeationPage():
 
     def assert_table_number_text(self, openbrowser):
         '''获取空管资讯总数'''
-        table_number = openbrowser.get_table_total_number(AtcInformeationPage.assert_table_number)
+        table_number = openbrowser.get_table_total_number(AtcInformationPage.assert_table_number)
         return table_number
 
     '''封装修改'''
 
     def atcinfor_update_button_click(self, openbrowser):
         '''封装编辑按钮点击'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_update_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_update_button)
 
     def get_table_atcinfor_title_text(self, openbrowser):
         '''获取列表中的文章标题内容'''
-        my_text = openbrowser.get_text(AtcInformeationPage.table_atcinfor_title_text)
+        my_text = openbrowser.get_text(AtcInformationPage.table_atcinfor_title_text)
         return my_text
 
     def assert_update_table_atcinfor_title_text(self, openbrowser, table_text):
-        my_update_atcinfor_title_text = openbrowser.get_vlaue(AtcInformeationPage.atcinfor_update_title_text)
+        my_update_atcinfor_title_text = openbrowser.get_vlaue(AtcInformationPage.atcinfor_update_title_text)
         if my_update_atcinfor_title_text == table_text:
             return True
         else:
@@ -178,37 +178,37 @@ class AtcInformeationPage():
 
     def assert_page_update_textcontent(self, openbrowser):
         '''封装判断修改页面文本是否一致'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_page_update_text, "空管资讯编辑")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_page_update_text, "空管资讯编辑")
         return res
 
     def atcinfor_update_submit_button_click(self, openbrowser):
         '''封装修改提交按钮点击'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_update_submit_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_update_submit_button)
 
     def assert_update_message_textcontent(self, openbrowser):
         '''封装判断修改成功'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_update_message_text, "保存成功")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_update_message_text, "保存成功")
         return res
 
     '''封装查询'''
 
     def atcinfor_query_button_click(self, openbrowser):
         '''封装查询按钮点击'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_query_button)
+        openbrowser.click_my(AtcInformationPage.atcinfor_query_button)
 
     def atcinfor_query_keyword_input(self, openbrowser, input_text):
         '''封装查询关键字'''
-        openbrowser.send_key_my(AtcInformeationPage.atcinfor_query_keyword, input_text)
+        openbrowser.send_key_my(AtcInformationPage.atcinfor_query_keyword, input_text)
 
     def atcinfor_query_startdate_select(self, openbrowser):
         '''封装选择开始时间--date日期框'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_query_startdate)  # 点击日期框，出现日期选择框
-        openbrowser.click_my(AtcInformeationPage.atcinfor_query_startdate_now)  # 点击现在按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_query_startdate)  # 点击日期框，出现日期选择框
+        openbrowser.click_my(AtcInformationPage.atcinfor_query_startdate_now)  # 点击现在按钮
 
     def atcinfor_query_enddate_select(self, openbrowser):
         '''封装选择结束时间--date日期框'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_query_enddate)  # 点击日期框，出现日期选择框
-        openbrowser.click_my(AtcInformeationPage.atcinfor_query_enddate_now)  # 点击现在按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_query_enddate)  # 点击日期框，出现日期选择框
+        openbrowser.click_my(AtcInformationPage.atcinfor_query_enddate_now)  # 点击现在按钮
 
     def atcinfor_query(self, openbrowser, keyword):
         '''封装查询'''
@@ -222,20 +222,20 @@ class AtcInformeationPage():
 
     def atcinfor_top_button_click(self, openbrowser):
         '''封装随机点击置顶'''
-        openbrowser.random_button_click(AtcInformeationPage.atcinfor_top_button)  # 随机点击置顶按钮
+        openbrowser.random_button_click(AtcInformationPage.atcinfor_top_button)  # 随机点击置顶按钮
 
     def assert_atcinfor_top_alert_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_atcinfor_top_alert_text, "确定置顶吗？")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_atcinfor_top_alert_text, "确定置顶吗？")
         return res
 
     def atcinfor_top_alert_submit_button_click(self, openbrowser):
         '''封装随机点击置顶'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_top_alert_submit_button)  # 点击确定按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_top_alert_submit_button)  # 点击确定按钮
 
     def assert_top_message_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_top_message_text, "置顶成功")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_top_message_text, "置顶成功")
         return res
 
 
@@ -243,38 +243,38 @@ class AtcInformeationPage():
 
     def atcinfor_canceltop_button_click(self, openbrowser):
         '''封装随机点击置顶'''
-        openbrowser.random_button_click(AtcInformeationPage.atcinfor_canceltop_button)  # 随机点击置顶按钮
+        openbrowser.random_button_click(AtcInformationPage.atcinfor_canceltop_button)  # 随机点击置顶按钮
 
     def assert_atcinfor_canceltop_alert_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_atcinfor_canceltop_alert_text, "确定取消置顶吗？")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_atcinfor_canceltop_alert_text, "确定取消置顶吗？")
         return res
 
     def atcinfor_canceltop_alert_submit_button_click(self, openbrowser):
         '''封装随机点击置顶'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_canceltop_alert_submit_button)  # 点击确定按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_canceltop_alert_submit_button)  # 点击确定按钮
 
     def assert_canceltop_message_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否进入用户管理页面'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_canceltop_message_text, "取消置顶成功")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_canceltop_message_text, "取消置顶成功")
         return res
 
     '''封装删除'''
 
     def atcinfor_delete_button_click(self, openbrowser):
         '''封装随机点击删除'''
-        openbrowser.random_button_click(AtcInformeationPage.atcinfor_delete_button)  # 随机点击删除按钮
+        openbrowser.random_button_click(AtcInformationPage.atcinfor_delete_button)  # 随机点击删除按钮
 
     def assert_atcinfor_delete_alert_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否弹出删除对话框'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_atcinfor_delete_alert_text, "确定删除吗？")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_atcinfor_delete_alert_text, "确定删除吗？")
         return res
 
     def atcinfor_delete_alert_submit_button_click(self, openbrowser):
         '''封装点击确定按钮'''
-        openbrowser.click_my(AtcInformeationPage.atcinfor_delete_alert_submit_button)  # 点击确定按钮
+        openbrowser.click_my(AtcInformationPage.atcinfor_delete_alert_submit_button)  # 点击确定按钮
 
     def assert_delete_message_textcontent(self, openbrowser):
         '''封装判断页面文本是否一致,来判断是否删除成功'''
-        res = openbrowser.is_text_in_element(AtcInformeationPage.assert_delete_message_text, "删除成功")
+        res = openbrowser.is_text_in_element(AtcInformationPage.assert_delete_message_text, "删除成功")
         return res

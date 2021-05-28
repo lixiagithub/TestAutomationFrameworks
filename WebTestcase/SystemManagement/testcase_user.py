@@ -117,7 +117,7 @@ class TestUser(UserManagementPage,Menu):
         else:
             logger.info('没有进入用户添加界面，不执行用户添加')
 
-    @pytest.mark.skip()
+    #@pytest.mark.skip()
     def test_update_user(self, test_into_userpage):
         '''修改用户'''
         if test_into_userpage:#进入用户管理界面才会有导航栏

@@ -9,7 +9,7 @@ from log.log import logger
 def login(openbrowser):
     '''登录过程'''
     openbrowser.send_key_my(LoginPage.username,'9999')#输入用户名
-    openbrowser.send_key_my(LoginPage.password,'19atnc@0328')#输入密码
+    openbrowser.send_key_my(LoginPage.password,'PBAPP#321')#输入密码:PBAPP#321,19atnc@0328
     #img = openbrowser.find_my(LoginPage.verification_code_pic)#验证码元素的位置
     #if VerificationCode().image_str(img) is not None:
     #openbrowser.send_key_my(LoginPage.verification_code, VerificationCode().image_str(img))#输入验证码

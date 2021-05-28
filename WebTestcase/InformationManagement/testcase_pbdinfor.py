@@ -32,7 +32,7 @@ class TestPbdinfor(PartyBuildingDynamicPage, Menu):
             try:
                 # 退出iframe
                 login.switch_to_default_iframe()
-                # 进入空管资讯管理页面
+                # 进入党建动态管理页面
                 self.into_pbdinfor_page(login)
                 # 定位iframe,并且进入iframe
                 self.into_pbdinfor_iframe(login)
@@ -56,11 +56,12 @@ class TestPbdinfor(PartyBuildingDynamicPage, Menu):
                 assert False, '进入党建动态页面失败'
 
     def test_add_pbdinfor(self, test_into_pbdinforpage, global_data):
+        '''新增'''
         if test_into_pbdinforpage:
             global_data['pbdinfor_classify'] = self.random_pbdinfor_classify(test_into_pbdinforpage)  # 随机选择树形节点，党建动态分类
             old_number = self.assert_table_number_text(test_into_pbdinforpage)  # 获取新增前的总数
             logger.info('新增前总数{}'.format(old_number))
-            self.click_atcinfor_add_button(test_into_pbdinforpage)  # 点击新增按钮
+            self.click_pbdinfor_add_button(test_into_pbdinforpage)  # 点击新增按钮
             if self.assert_page_add_textcontent(test_into_pbdinforpage):  # 判断是否打开新增界面
                 logger.info('进入党建动态添加界面成功')
                 test_into_pbdinforpage.driver.switch_to.frame(0)  # 进入第二层新增iframe
@@ -103,8 +104,8 @@ class TestPbdinfor(PartyBuildingDynamicPage, Menu):
 
     # @pytest.mark.skip()
     def test_update_pbdinfor(self, test_into_pbdinforpage):
-        '''修改空管资讯'''
-        if test_into_pbdinforpage:  # 进入空管资讯界面
+        '''修改'''
+        if test_into_pbdinforpage:  # 进入党建动态界面
             title_text = self.get_table_pbdinfor_title_text(test_into_pbdinforpage)  # 获取列表中标题文本
             self.pbdinfor_update_button_click(test_into_pbdinforpage)  # 点击编辑按钮
             if self.assert_page_update_textcontent(test_into_pbdinforpage):  # 判断是否打开修改界面

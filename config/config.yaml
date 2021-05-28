@@ -22,6 +22,12 @@ apidatabase:
 
 webdatabase:
     username: root
+    password: 123456
+    dbname: pbapp
+    serve: 132.138.7.112
+
+webdatabase1:
+    username: root
     password: ATMB#3745
     dbname: bjthx
     serve: 132.134.10.126
