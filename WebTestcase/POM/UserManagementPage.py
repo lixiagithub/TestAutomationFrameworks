@@ -57,8 +57,9 @@ class UserManagementPage():
     '''启用'''
     user_start_using = (By.XPATH, '//*[@id="client_table"]/tbody/tr[1]/td[10]/a[2]')  # 第一个启用用按钮
 
+
     def click_user_tab_close_button(self, openbrowser):
-        '''封装点击新增按钮'''
+        '''封装点击tab关闭按钮'''
         openbrowser.click_my(UserManagementPage.user_tab_close_button)
 
     def click_user_add_button(self,openbrowser):

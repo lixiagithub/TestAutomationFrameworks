@@ -386,7 +386,7 @@ class BrowserInit():
         li_choice.click()
 
     def select_ul_click(self, loc_li):
-        '''直接选择下拉列表特定内容loc'''
+        '''直接选择下拉列表特定内容loc定位'''
         li_choice = self.until_element_visible(loc_li)  # 定位指定li
         # print('随机选择的下拉元素{}'.format(li_choice), li_choice.text)
         logger.info('直接选择下拉文本:{}'.format(li_choice.text))

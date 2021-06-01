@@ -339,3 +339,4 @@ class AirTrafficControlMicroVisionListPage():
         '''封装判断页面文本是否一致,来判断是否删除成功'''
         res = openbrowser.is_text_in_element(AirTrafficControlMicroVisionListPage.assert_atcmvlinfor_delete_message_text, "删除成功")
         return res
+
